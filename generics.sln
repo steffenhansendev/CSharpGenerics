@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E6F7C89E-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generics.Tests", "test\Generics.Tests\Generics.Tests.csproj", "{3D2F5839-439C-40A5-9F7C-E70B360922C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCollections", "src\GenericCollections\GenericCollections.csproj", "{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,9 +50,22 @@ Global
 		{3D2F5839-439C-40A5-9F7C-E70B360922C3}.Release|x64.Build.0 = Release|Any CPU
 		{3D2F5839-439C-40A5-9F7C-E70B360922C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{3D2F5839-439C-40A5-9F7C-E70B360922C3}.Release|x86.Build.0 = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|x64.Build.0 = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Debug|x86.Build.0 = Debug|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|x64.ActiveCfg = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|x64.Build.0 = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|x86.ActiveCfg = Release|Any CPU
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A838FB98-A2C9-452C-9920-325FF88C67A0} = {D7E0B977-7F03-445C-B015-1FFF259D58F0}
 		{3D2F5839-439C-40A5-9F7C-E70B360922C3} = {E6F7C89E-A363-4673-881A-C9052D588072}
+		{B4235AE2-CE36-4F8B-856D-CE14EDE9A2E3} = {D7E0B977-7F03-445C-B015-1FFF259D58F0}
 	EndGlobalSection
 EndGlobal
