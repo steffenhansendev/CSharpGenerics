@@ -6,7 +6,7 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            var buffer = new CircularBuffer(capacity: 3);
+            var buffer = new CircularBuffer<double>(capacity: 3);
 
             while(true)
             {
