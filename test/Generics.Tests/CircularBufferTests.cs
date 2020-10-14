@@ -53,5 +53,25 @@ namespace Generics.Tests
             Assert.Equal(values[4], buffer.Read());
             Assert.True(buffer.IsEmpty);
         }
+
+        // => The compiler will check how the CircularBuffer has been parameterized when it is passed around
+        [Fact]
+        public void GenericCircularBuffer_Comparisons_Truthful()
+        {
+            // Given
+            CircularBuffer<long> circularLongBuffer1 = new CircularBuffer<long>();
+            CircularBuffer<long> circularLongBuffer2 = new CircularBuffer<long>();
+            CircularBuffer<object> circularObjectBuffer = new CircularBuffer<object>();    // Will cause boxing
+            CircularBuffer<string> circularStringBuffer = new CircularBuffer<string>();
+            CircularStringBuffer nonGenericCircularStringBuffer = new CircularStringBuffer();
+            
+            // When
+            // Then
+            Assert.False(circularLongBuffer1.Equals(circularLongBuffer2));
+            Assert.True(circularLongBuffer1.GetType() == circularLongBuffer2.GetType());
+            Assert.False(circularLongBuffer1.GetType() == circularObjectBuffer.GetType());
+            Assert.False(circularLongBuffer1.GetType() == circularStringBuffer.GetType());
+            Assert.False(circularStringBuffer.GetType() == nonGenericCircularStringBuffer.GetType());
+        }
     }
 }
