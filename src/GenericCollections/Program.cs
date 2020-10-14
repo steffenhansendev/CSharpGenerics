@@ -9,8 +9,26 @@ namespace GenericCollections
         {
             // Arrays();
             // Lists();
+            // Queues();
 
-            Queues();
+            Stacks();
+        }
+
+        /// <summary>
+        /// Last In, First Out (LIFO)
+        /// </summary>
+        private static void Stacks()
+        {
+            Stack<Employee> employeesStack = new Stack<Employee>();
+            employeesStack.Push(new Employee { Name = "First in" });
+            employeesStack.Push(new Employee { Name = "Second in" });
+            employeesStack.Push(new Employee { Name = "Third in" });
+
+            while (employeesStack.Count > 0)
+            {
+                Employee employee = employeesStack.Pop();
+                Console.WriteLine(employee.Name);
+            }
         }
         
         /// <summary>
