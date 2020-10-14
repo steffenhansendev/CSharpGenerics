@@ -8,8 +8,26 @@ namespace GenericCollections
         static void Main(string[] args)
         {
             // Arrays();
-            
-            Lists();
+            // Lists();
+
+            Queues();
+        }
+        
+        /// <summary>
+        /// First In, First Out (FIFO)
+        /// </summary>
+        private static void Queues()
+        {
+            Queue<Employee> employeesQueue = new Queue<Employee>();
+            employeesQueue.Enqueue(new Employee { Name = "Alex" });
+            employeesQueue.Enqueue(new Employee { Name = "Dani" });
+            employeesQueue.Enqueue(new Employee { Name = "Chris" });
+
+            while (employeesQueue.Count > 0)
+            {
+                Employee employee = employeesQueue.Dequeue();
+                Console.WriteLine(employee.Name);
+            }
         }
 
         private static void Lists()
