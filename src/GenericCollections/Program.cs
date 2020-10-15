@@ -10,8 +10,40 @@ namespace GenericCollections
             // Arrays();
             // Lists();
             // Queues();
+            // Stacks();
+            HashSets();
+        }
 
-            Stacks();
+        /// <summary>
+        /// Set in the mathematical sense of word; stores unique elements => no duplicates
+        /// Order is not guaranteed
+        /// </summary>
+        private static void HashSets()
+        {
+            HashSet<int> intSet = new HashSet<int>();
+            intSet.Add(1);
+            intSet.Add(2);
+            intSet.Add(2);    // Does nothing because the element already exists in the set; returns false
+            intSet.Add(3);
+
+            foreach (int integer in intSet)
+            {
+                Console.WriteLine(integer);
+            }
+
+            HashSet<Employee> employeesSet = new HashSet<Employee>();
+            employeesSet.Add(new Employee() { Name = "Scott"} );    
+            employeesSet.Add(new Employee() { Name = "Scott"} );    // This is not a duplicate even though the have an identical Name property
+
+            Employee duplicateEmployee = new Employee() {Name = "Brian"};
+
+            employeesSet.Add(duplicateEmployee);
+            employeesSet.Add(duplicateEmployee);    // This is a duplicate 
+
+            foreach (Employee employee in employeesSet)
+            {
+                Console.WriteLine(employee.Name);
+            }
         }
 
         /// <summary>
