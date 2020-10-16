@@ -11,7 +11,48 @@ namespace GenericCollections
             // Lists();
             // Queues();
             // Stacks();
-            HashSets();
+            // HashSets();
+            Dictionaries();
+        }
+
+        /// <summary>
+        /// Key is used to search the Dictionary i.e. for a particular value
+        /// Adding duplicate keys will throw an exception
+        /// </summary>
+        private static void Dictionaries()
+        {
+            Dictionary<string, Employee> employeesByName = new Dictionary<string, Employee>();
+            employeesByName.Add("Scott", new Employee { Name = "Scott" });
+            employeesByName.Add("Alex", new Employee { Name = "Alex" });
+            employeesByName.Add("Joy", new Employee { Name = "Joy" });
+            foreach (KeyValuePair<string, Employee> item in employeesByName)
+            {
+                Console.WriteLine($"The key {item.Key} maps to the value {item.Value}");
+            }
+
+            Dictionary<string, List<Employee>> employeeListsByName = new Dictionary<string, List<Employee>>();
+            employeeListsByName.Add("Scott", new List<Employee> { new Employee { Name = "Scott 1" } });
+            employeeListsByName["Scott"].Add(new Employee { Name = "Scott 2"});
+            foreach (KeyValuePair<string, List<Employee>> item in employeeListsByName)
+            {
+                Console.WriteLine($"The list of {item.Key} contains:");
+                foreach (Employee employee in item.Value)
+                {
+                    Console.WriteLine($"\t{employee.Name}");
+                }
+            }
+
+            Dictionary<Department, List<Employee>> employeeListsByDepartment = new Dictionary<Department, List<Employee>>();
+
+            Department department1 = new Department { Id = 1 }; 
+            
+            employeeListsByDepartment.Add(department1, new List<Employee> { new Employee { Name = "Scott" }, new Employee { Name = "Brian"} });
+
+            Console.WriteLine("Working in Department 1:");
+            foreach (Employee employee in employeeListsByDepartment[department1])
+            {
+                Console.WriteLine($"\t{employee.Name}");
+            }
         }
 
         /// <summary>
