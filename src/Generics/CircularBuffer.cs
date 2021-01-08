@@ -1,6 +1,6 @@
 ﻿namespace Generics
 {
-    public class CircularBuffer<T>
+    public class CircularBuffer<T> : IBuffer<T>
     {
         /*
          * Generics type allow code reuse with type safety

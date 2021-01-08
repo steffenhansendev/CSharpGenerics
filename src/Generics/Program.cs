@@ -11,7 +11,7 @@ namespace Generics
             ProcessBuffer(buffer);
         }
 
-        private static void ProcessBuffer(CircularBuffer<double> buffer)
+        private static void ProcessBuffer(IBuffer<double> buffer)
         {
             var sum = 0.0;
             Console.WriteLine("Buffer: ");
@@ -25,7 +25,7 @@ namespace Generics
             Console.WriteLine("Sum: " + sum);
         }
 
-        private static void ProcessUserInput(CircularBuffer<double> buffer)
+        private static void ProcessUserInput(IBuffer<double> buffer)
         {
             while (true)
             {
