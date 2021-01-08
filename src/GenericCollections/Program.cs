@@ -13,9 +13,31 @@ namespace GenericCollections
             // Stacks();
             // HashSets();
             // Dictionaries();
-            SortedDictionaries();
-            SortedList();
-            SortedSet();
+            // SortedDictionaries();
+            // SortedList();
+            // SortedSet();
+            CompareEmployees();
+        }
+
+        private static void CompareEmployees()
+        {
+            DepartmentCollection departments = new DepartmentCollection();
+            departments
+                .Add("Sales", new Employee { Name = "Joy" })
+                .Add("Sales", new Employee { Name = "Dani" })
+                .Add("Sales", new Employee { Name = "Dani" })
+                .Add("Engineering", new Employee { Name = "Scott" })
+                .Add("Engineering", new Employee { Name = "Alex" })
+                .Add("Engineering", new Employee { Name = "Dani" });
+
+            foreach (KeyValuePair<string, SortedSet<Employee>> department in departments)
+            {
+                Console.WriteLine(department.Key);
+                foreach (Employee employee in department.Value)
+                {
+                    Console.WriteLine("\t" + employee.Name);
+                }
+            }
         }
 
         /// <summary>

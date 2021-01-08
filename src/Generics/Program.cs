@@ -6,23 +6,15 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            var buffer = new CircularBuffer<double>(capacity: 3);
+            var buffer = new CircularBufferByArray<double>(capacity: 3);
             ProcessUserInput(buffer);
-            ProcessBuffer(buffer);
-        }
 
-        private static void ProcessBuffer(IBuffer<double> buffer)
-        {
-            var sum = 0.0;
-            Console.WriteLine("Buffer: ");
-            while (!buffer.IsEmpty)
+            foreach (double item in buffer)
             {
-                double value = buffer.Read();
-                Console.WriteLine(value);
-                sum += value;
+                Console.WriteLine(item);
             }
-
-            Console.WriteLine("Sum: " + sum);
+            
+            ProcessBuffer(buffer);
         }
 
         private static void ProcessUserInput(IBuffer<double> buffer)
@@ -39,6 +31,20 @@ namespace Generics
                 }
                 break;
             }
+        }
+        
+        private static void ProcessBuffer(IBuffer<double> buffer)
+        {
+            var sum = 0.0;
+            Console.WriteLine("Buffer: ");
+            while (!buffer.IsEmpty)
+            {
+                double value = buffer.Read();
+                Console.WriteLine(value);
+                sum += value;
+            }
+
+            Console.WriteLine("Sum: " + sum);
         }
     }
 }

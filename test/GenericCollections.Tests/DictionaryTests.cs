@@ -35,7 +35,7 @@ namespace GenericCollections.Tests
 
             map.Remove(1);
 
-            Assert.Equal(1, map.Count);
+            Assert.Single(map);
         }
 
         [Fact]
