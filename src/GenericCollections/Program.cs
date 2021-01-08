@@ -12,7 +12,70 @@ namespace GenericCollections
             // Queues();
             // Stacks();
             // HashSets();
-            Dictionaries();
+            // Dictionaries();
+            SortedDictionaries();
+            SortedList();
+            SortedSet();
+        }
+
+        /// <summary>
+        /// A HashSet in which elements will be sorted in (numerical) order 
+        /// </summary>
+        private static void SortedSet()
+        {
+            SortedSet<int> sortedSetOfInts = new SortedSet<int>();
+
+            sortedSetOfInts.Add(1);
+            sortedSetOfInts.Add(0);
+            sortedSetOfInts.Add(-1);
+
+            foreach (int element in sortedSetOfInts)
+            {
+                Console.WriteLine(element);
+            }
+        }
+
+        /// <summary>
+        /// A List in which KeyValuePairs will be sorted in order of the keys
+        /// Adding duplicate keys will throw an exception
+        /// Uses less memory than SortedDictionary but has slower insertion and deletion: O(n)
+        /// Offers IndexOfKey() and IndexOfValue()
+        /// Implemented with two arrays
+        /// </summary>
+        private static void SortedList()
+        {
+            SortedList<string, List<Employee>> employeesListsByDepartmentName = new SortedList<string, List<Employee>>();
+            
+            employeesListsByDepartmentName.Add("Sales", new List<Employee> { new Employee(), new Employee(), new Employee() });
+            employeesListsByDepartmentName.Add("Engineering", new List<Employee> { new Employee(), new Employee()});
+
+            foreach (KeyValuePair<string, List<Employee>> employeesListByDepartmentName in employeesListsByDepartmentName)
+            {
+                Console.WriteLine("The index of the key {0} is {1}", employeesListByDepartmentName.Key,
+                    employeesListsByDepartmentName.IndexOfKey(employeesListByDepartmentName.Key));
+            }
+        }
+
+        /// <summary>
+        /// A Dictionary in which KeyValuePairs will be sorted in order of the keys
+        /// Adding duplicate keys will throw an exception
+        /// Uses more memory than SortedList but offers faster insertion and deletion: O(log (n))
+        /// Does not offer IndexOfKey() or IndexOfValue()
+        /// Implemented with a binary search tree
+        /// </summary>
+        private static void SortedDictionaries()
+        {
+            SortedDictionary<string, List<Employee>> employeesListsByDepartmentName =
+                new SortedDictionary<string, List<Employee>>();
+            
+            employeesListsByDepartmentName.Add("Sales", new List<Employee> { new Employee(), new Employee(), new Employee() });
+            employeesListsByDepartmentName.Add("Engineering", new List<Employee> { new Employee(), new Employee() });
+            
+            foreach (KeyValuePair<string, List<Employee>> employeesListByDepartmentName in employeesListsByDepartmentName)
+            {
+                Console.WriteLine("The count of employees in {0} is {1}", employeesListByDepartmentName.Key,
+                    employeesListByDepartmentName.Value.Count);
+            }
         }
 
         /// <summary>
