@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Generics
 {
@@ -75,6 +76,15 @@ namespace Generics
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+        
+        public IEnumerable<TOut> AsEnumerable<TOut>()
+        {
+            TypeConverter typeConverter = TypeDescriptor.GetConverter(typeof(T));
+            for (int i = 0; i < _buffer.Length; i++)
+            {
+                yield return (TOut) typeConverter.ConvertTo(_buffer[i], typeof(TOut));
+            }
         }
     }
 }

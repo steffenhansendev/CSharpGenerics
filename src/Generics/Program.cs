@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Generics
 {
@@ -9,9 +10,10 @@ namespace Generics
             var buffer = new CircularBufferByArray<double>(capacity: 3);
             ProcessUserInput(buffer);
 
-            foreach (double item in buffer)
+            IEnumerable<int> elementsAsInts = buffer.AsEnumerable<int>();
+            foreach (int element in elementsAsInts)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(element);
             }
             
             ProcessBuffer(buffer);
