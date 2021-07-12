@@ -28,7 +28,7 @@ namespace Generics
         
         public CircularBufferByArray(int capacity)
         {
-            _buffer = new T[capacity+1];
+            _buffer = new T[capacity];
             _start = 0;
             _end = 0;
         }
@@ -76,15 +76,6 @@ namespace Generics
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-        
-        public IEnumerable<TOut> AsEnumerable<TOut>()
-        {
-            TypeConverter typeConverter = TypeDescriptor.GetConverter(typeof(T));
-            for (int i = 0; i < _buffer.Length; i++)
-            {
-                yield return (TOut) typeConverter.ConvertTo(_buffer[i], typeof(TOut));
-            }
         }
     }
 }

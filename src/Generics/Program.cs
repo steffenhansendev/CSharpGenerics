@@ -7,16 +7,32 @@ namespace Generics
     {
         static void Main(string[] args)
         {
-            var buffer = new CircularBufferByArray<double>(capacity: 3);
-            ProcessUserInput(buffer);
+            var buffer = new CircularBuffer<double>(capacity: 3);
+            
+            buffer.ItemDiscarded += HandleItemDiscarded;
 
-            IEnumerable<int> elementsAsInts = buffer.AsEnumerable<int>();
+            ProcessUserInput(buffer);
+            
+            PrintCallback<double> printCallback = new PrintCallback<double>(ConsolePrintCallback);
+            buffer.Dump<double>(printCallback);
+            
+            IEnumerable<int> elementsAsInts = buffer.AsEnumerable<double, int>();
             foreach (int element in elementsAsInts)
             {
                 Console.WriteLine(element);
             }
             
             ProcessBuffer(buffer);
+        }
+
+        private static void HandleItemDiscarded(object sender, ItemDiscardedEventArgs<double> eventArgs)
+        {
+            Console.WriteLine("Buffer full. Discarding: {0}. Adding {1}", eventArgs.DiscardedItem, eventArgs.NewItem);
+        }
+
+        private static void ConsolePrintCallback(double data)
+        {
+            Console.WriteLine(data);
         }
 
         private static void ProcessUserInput(IBuffer<double> buffer)

@@ -12,7 +12,7 @@
         
         public CircularStringBuffer(int capacity)
         {
-            _buffer = new string[capacity+1];
+            _buffer = new string[capacity];
             _start = 0;
             _end = 0;
         }

@@ -39,7 +39,7 @@ namespace Generics.Tests
         [Fact]
         public void Overwrites_When_More_Than_Capacity()
         {
-            var buffer = new CircularBufferByArray<double>(capacity: 3);
+            var buffer = new CircularBufferByArray<double>(capacity: 4);
             var values = new[] { 1.0, 2.0, 3.0, 4.0, 5.0 };
 
             foreach (var value in values)

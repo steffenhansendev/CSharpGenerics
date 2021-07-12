@@ -1,4 +1,6 @@
-﻿namespace Generics
+﻿using System;
+
+namespace Generics
 {
     public class CircularBuffer<T> : BufferBase<T>
     {
@@ -13,9 +15,20 @@
             base.Write(value);
             if (Queue.Count > _capacity)
             {
-                Queue.Dequeue();
+                OnItemDiscarded(Queue.Dequeue(), value);
             }
         }
+
+        private void OnItemDiscarded(T discardedItem, T newItem)
+        {
+            if (ItemDiscarded != null)
+            {
+                ItemDiscardedEventArgs<T> eventArgs = new ItemDiscardedEventArgs<T>(discardedItem, newItem);
+                ItemDiscarded(this, eventArgs);
+            }
+        }
+
+        public event EventHandler<ItemDiscardedEventArgs<T>> ItemDiscarded;
 
         public bool IsFull()
         {
